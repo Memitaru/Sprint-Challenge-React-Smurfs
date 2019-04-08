@@ -10,12 +10,13 @@ const SmurfContainer = styled.div`
 const DeleteButton = styled.button`
   margin-bottom: 15px;
   border: 1px solid #002A32;
-  background-color: white;
+  background-color: #002A32;
+  color: white;
   height: 30px;
   cursor: pointer;
   padding: 0 15px;
   &:hover{
-    border: 2px solid #002A32;
+    border: 2px solid #00D6D6;
   }
 `
 
