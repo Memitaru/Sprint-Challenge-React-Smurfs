@@ -39,9 +39,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <ul>
-        <li><NavLink exact to="/">Village</NavLink></li>
-        <li><NavLink to="/add">Add Smurf</NavLink></li>
+      <ul className="navbar">
+        <li activeClassName="active"><NavLink exact to="/">Village</NavLink></li>
+        <li activeClassName="active"><NavLink to="/add">Add Smurf</NavLink></li>
       </ul>
         <Route exact 
           path="/" 
