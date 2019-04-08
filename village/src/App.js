@@ -5,6 +5,7 @@ import {Route, NavLink} from 'react-router-dom';
 import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
+import SmurfPage from './components/SmurfPage';
 
 class App extends Component {
   constructor(props) {
@@ -28,6 +29,13 @@ class App extends Component {
     this.setState({smurfs: newSmurfs})
   }
 
+  deleteSmurf = id => {
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => this.setState({smurfs: res.data}))
+      .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <div className="App">
@@ -35,8 +43,25 @@ class App extends Component {
         <li><NavLink exact to="/">Village</NavLink></li>
         <li><NavLink to="/add">Add Smurf</NavLink></li>
       </ul>
-        <Route exact path="/" render={props => <Smurfs {...props} smurfs={this.state.smurfs} />} />
-        <Route path="/add" render={props => <SmurfForm {...props} updateList={this.updateList} />} /> 
+        <Route exact 
+          path="/" 
+          render={props => 
+            <Smurfs {...props} 
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+       />} 
+        />
+        <Route 
+          path="/add" 
+            render={props => 
+              <SmurfForm {...props} 
+              updateList={this.updateList} />} 
+        /> 
+        <Route 
+          path="/smurf/:id" 
+          render={props => 
+            <SmurfPage {...props} 
+            smurfs={this.state.smurfs} />} />
       </div>
     );
   }
