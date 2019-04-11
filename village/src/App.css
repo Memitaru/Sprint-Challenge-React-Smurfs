@@ -1,3 +1,25 @@
 .App {
   text-align: center;
 }
+
+.navbar {
+  margin: 0;
+  padding: 0;
+  height: 60px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+
+.navbar > li > a {
+  color: #002A32;
+  text-decoration: none;
+  padding: 24px;
+  height: 16px;
+}
+
+.navbar > li > a.active {
+  color: #00D6D6;
+  background-color: #002A32;
+}
